@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pilem/models/movie.dart';
+import 'package:pilem/screens/detail_screen.dart';
 import 'package:pilem/services/api_services.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -76,7 +77,10 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 final Movie movie = movies[index];
                 return GestureDetector(
-                  onTap: () {},
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailScreen(movie: movie))),
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
